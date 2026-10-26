@@ -11,6 +11,16 @@ body {
   color: #1a1a2e;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* ===== OFFER SECTION ===== */
 .offer-section {
   display: flex;
@@ -20,12 +30,13 @@ body {
   padding: 60px 20px;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   min-height: 100vh;
+  min-height: 100svh;
   position: relative;
 }
 
 /* Badge */
 .offer-badge {
-  background: #ff4757;
+  background: #d63031;
   color: #fff;
   font-size: 0.85rem;
   font-weight: 700;
@@ -81,7 +92,7 @@ body {
 
 .offer-subtitle {
   font-size: 0.95rem;
-  color: #666;
+  color: #595959;
   line-height: 1.5;
 }
 
@@ -102,9 +113,23 @@ body {
 }
 
 .offer-features li {
+  position: relative;
+  padding-left: 30px;
   font-size: 0.95rem;
+  line-height: 1.4;
   color: #333;
   font-weight: 500;
+}
+
+.offer-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: #2e7d32 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
 }
 
 /* Pricing */
@@ -112,9 +137,13 @@ body {
   margin-bottom: 32px;
 }
 
+.offer-pricing ins {
+  text-decoration: none;
+}
+
 .price-original {
   font-size: 1.1rem;
-  color: #aaa;
+  color: #6b7280;
   text-decoration: line-through;
   display: block;
   margin-bottom: 4px;
@@ -137,7 +166,7 @@ body {
 
 .price-label {
   font-size: 1rem;
-  color: #888;
+  color: #595959;
   margin-bottom: 8px;
 }
 
@@ -148,13 +177,14 @@ body {
   font-size: 0.85rem;
   font-weight: 700;
   padding: 5px 14px;
-  border-radius: 50px;
+  border-radius: 12px;
+  line-height: 1.4;
 }
 
 /* CTA Button */
 .offer-btn {
   display: block;
-  background: linear-gradient(135deg, #6c63ff, #574fd6);
+  background: linear-gradient(135deg, #5b52f0, #4f46e5);
   color: #fff;
   font-size: 1.05rem;
   font-weight: 700;
@@ -166,21 +196,54 @@ body {
   box-shadow: 0 8px 24px rgba(108,99,255,.4);
 }
 
-.offer-btn:hover {
+.offer-btn-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+
+.offer-btn:hover,
+.offer-btn:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(108,99,255,.55);
+}
+
+.offer-btn:hover .offer-btn-arrow,
+.offer-btn:focus-visible .offer-btn-arrow {
+  transform: translateX(3px);
+}
+
+.offer-btn:focus-visible {
+  outline: 3px solid #1a1a2e;
+  outline-offset: 3px;
+}
+
+.offer-btn:active {
+  transform: translateY(0);
 }
 
 /* Note */
 .offer-note {
   font-size: 0.82rem;
-  color: #999;
+  color: #6b7280;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 520px) {
+  .offer-section {
+    padding: 40px 16px;
+  }
+
   .offer-card {
-    padding: 36px 24px;
+    padding: 36px 20px;
+  }
+
+  .offer-features {
+    padding: 18px 16px;
+  }
+
+  .offer-btn {
+    padding: 16px 20px;
   }
 
   .price-amount {
@@ -189,5 +252,23 @@ body {
 
   .offer-title {
     font-size: 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-badge {
+    animation: none;
+  }
+
+  .offer-btn,
+  .offer-btn-arrow {
+    transition: none;
+  }
+
+  .offer-btn:hover,
+  .offer-btn:focus-visible,
+  .offer-btn:hover .offer-btn-arrow,
+  .offer-btn:focus-visible .offer-btn-arrow {
+    transform: none;
   }
 }

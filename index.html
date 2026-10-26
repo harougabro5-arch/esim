@@ -9,36 +9,36 @@
 <body>
 
   <!-- ===== OFFER SECTION ===== -->
-  <section class="offer-section">
-    <div class="offer-badge">🔥 Offre Limitée</div>
+  <section class="offer-section" aria-labelledby="offer-title">
+    <p class="offer-badge"><span aria-hidden="true">🔥</span> Offre Limitée</p>
 
     <div class="offer-card">
       <div class="offer-header">
-        <h2 class="offer-title">eSIM <span>Mondiale</span></h2>
+        <h2 class="offer-title" id="offer-title">eSIM <span>Mondiale</span></h2>
         <p class="offer-subtitle">Connectez-vous dans 190+ pays sans changer de carte SIM</p>
       </div>
 
       <div class="offer-features">
-        <ul>
-          <li>✅ Données illimitées dans 190+ pays</li>
-          <li>✅ Activation instantanée par QR Code</li>
-          <li>✅ Valable 30 jours</li>
-          <li>✅ Support 24/7</li>
+        <ul role="list" aria-label="Inclus dans l'offre">
+          <li>Données illimitées dans 190+ pays</li>
+          <li>Activation instantanée par QR Code</li>
+          <li>Valable 30 jours</li>
+          <li>Support 24/7</li>
         </ul>
       </div>
 
       <div class="offer-pricing">
-        <span class="price-original">€79</span>
-        <div class="price-current">
-          <span class="price-amount">€59</span>
+        <del class="price-original"><span class="visually-hidden">Prix initial : </span>€79</del>
+        <p class="price-current">
+          <ins class="price-amount"><span class="visually-hidden">Prix promotionnel : </span>€59</ins>
           <span class="price-label">seulement</span>
-        </div>
-        <div class="price-savings">Économisez €20 — 25% de réduction</div>
+        </p>
+        <p class="price-savings">Économisez €20 — 25% de réduction</p>
       </div>
 
-      <a href="#" class="offer-btn">Acheter Maintenant →</a>
+      <a href="#" class="offer-btn">Acheter Maintenant<span class="offer-btn-arrow" aria-hidden="true">→</span></a>
 
-      <p class="offer-note">⏳ Offre valable pour une durée limitée</p>
+      <p class="offer-note"><span aria-hidden="true">⏳</span> Offre valable pour une durée limitée</p>
     </div>
   </section>
 
